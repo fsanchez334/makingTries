@@ -51,3 +51,21 @@ def build_big_trie(starter, list_of_words):
 
 #At this point, we should have theoretically have built the trie
 
+#Now the extra challenge: What if someone wants to add words to the dictionary?
+def add_char(starter, word):
+  container = set(word)
+  current_chars = set(starter.get_children().keys())
+  actual = container.difference(current_chars)
+  if len(actual) == 0:
+    return False
+  else:
+    for i in actual:
+      starter.insertChild(Trie(i))
+  print(starter.get_children().keys())
+
+def add_branch(starter, word):
+  for i in range(len(word)-1):
+    trie_ = starter.get_children()[word[i]]
+    trie_.insertChild(starter.get_children()[word[i+1]])
+  return
+
