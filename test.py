@@ -28,5 +28,17 @@ print("-----------Testinng the Trie against unseen words---------------------")
 bad_words = ["cars", "candy", "cott", "triez"]
 for words in bad_words:
     print("Is", words, "present?", isPresent(root, words))
+print("----------------------------------------------------------------------")
+
+print("-----------Adding unknown word to the trie----------------------------")
+#In the following, we will add a word that isn't found in the dictionary
+example = "maker"
+print(add_char(root, example))
+add_branch(root, example)
+
+if isPresent(root, example):
+    print(example, "has been added to the trie")
+else:
+    print("Something went wrong")
 
 print("----------------------------------------------------------------------")
